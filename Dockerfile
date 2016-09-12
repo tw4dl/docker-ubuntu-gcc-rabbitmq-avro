@@ -21,9 +21,9 @@ RUN \
 
 RUN \
 	rm -rf rabbitmq-c && \
-	git clone -b v0.4.1 https://github.com/alanxz/rabbitmq-c.git && \
+	git clone https://github.com/alanxz/rabbitmq-c.git && \
 	cd rabbitmq-c && \
-#	git reset --hard e1746f92585d59364fc48b6305ce25d7fc86c2a4 && \
+	git checkout -b v0.8.0 && \
 	mkdir -p build && \
 	cd build && cmake .. && \
 	cmake --build . && \
