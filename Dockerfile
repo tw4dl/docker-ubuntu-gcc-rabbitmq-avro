@@ -22,16 +22,16 @@ RUN \
 	apt-get --no-install-recommends install -y rpm
 
 RUN \
-	rm -rf avro-cpp-1.7.7 && \
-	wget http://mirrors.ibiblio.org/apache/avro/avro-1.7.7/cpp/avro-cpp-1.7.7.tar.gz && \
-	tar -zxvf avro-cpp-1.7.7.tar.gz && \
-	cd avro-cpp-1.7.7 && \
+	rm -rf avro-cpp-1.7.5 && \
+	wget https://archive.apache.org/dist/avro/avro-1.7.5/cpp/avro-cpp-1.7.5.tar.gz && \
+	tar -zxvf avro-cpp-1.7.5.tar.gz && \
+	cd avro-cpp-1.7.5 && \
 	mkdir -p build && cd build && \
 	cmake .. \
         -DCMAKE_INSTALL_PREFIX=/usr/local \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
 	make && make test && make install && \
-	cd / && rm -rf avro-cpp-1.7.7 avro-cpp-1.7.7.tar.gz
+	cd / && rm -rf avro-cpp-1.7.5 avro-cpp-1.7.5.tar.gz
 
 RUN \
 	rm -rf rabbitmq-c && \
