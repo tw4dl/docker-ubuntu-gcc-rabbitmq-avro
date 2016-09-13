@@ -1,10 +1,17 @@
 FROM ubuntu:14.04
+# for ubuntu:12.04
+#FROM dliu/ubuntu-gcc-valgrind
+
+#RUN \
+	#apt-get install -y python-software-properties && \
+	#add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 
 RUN \
 	apt-get update && \
 	apt-get install -y openssl && \
 	apt-get install -y libssl-dev && \
-	apt-get install -y GCC && \
+#	apt-get install -y GCC && \
+  apt-get install -y build-essential && \
 	apt-get install -y libpopt-dev && \
 	apt-get install -y git && \
 	apt-get install -y cmake
@@ -14,8 +21,10 @@ RUN \
 	apt-get --no-install-recommends install -y xmlto && \
 	apt-get --no-install-recommends install -y g++ && \
 	apt-get --no-install-recommends install -y libboost-dev && \
-	apt-get --no-install-recommends install -y libboost-program-options-dev && \
 	apt-get --no-install-recommends install -y libboost-all-dev  && \
+	apt-get --no-install-recommends install -y libboost-program-options-dev
+
+RUN \
 	apt-get --no-install-recommends install -y liblog4cplus-dev && \
 	apt-get --no-install-recommends install -y check && \
 	apt-get --no-install-recommends install -y wget && \
